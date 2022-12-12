@@ -18,6 +18,12 @@ if img_source == "画像をアップロード":
 elif img_source == "カメラで撮影":
     img_file = st.camera_input("カメラで撮影")
 
+sample_img = st.sidebar.radio("sample images", ["", "sports car", "tomato"])
+if sample_img == "sports car":
+    img_file = "car.png"
+elif sample_img == "tomato":
+    img_file = "tomato.jpg"
+
 if img_file is not None:
     with st.spinner("推定中..."):
         img = Image.open(img_file).convert('RGB')
